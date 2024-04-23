@@ -1,31 +1,22 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import DifferenceBarChart from "../components/DifferenceBarChart";
 import LatestTransactions from "../components/LatestTransactions";
-import AddTransactionModel from "../components/AddTransactionModal";
 import { useState } from "react";
-import Sidebar from "../components/Sidebar";
-function Dashboard() {
-  const handleOnClick = () => {
-    setShowModal(true);
-  };
-  
-  const [showModal, setShowModal] = useState(false);
+import BottomNavigationMenu from "../components/BottomNavigationMenu";
+import "../assets/css/dashboard.css";
+import BottomDialogBox from "../components/BottomDialog";
 
+function Dashboard() {
+  const [dialogOpen, setDialogOpen] = useState(true);
+
+  const toggleDialog = () => {
+    setDialogOpen(!dialogOpen);
+  };
   return (
     <>
-        <Sidebar />
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
             <h1 className="text-center my-4">Dashboard</h1>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-sm-4">
-            <button className="btn btn-primary" onClick={handleOnClick}>
-              Add
-            </button>
           </div>
         </div>
         <div className="row my-4">
@@ -34,7 +25,11 @@ function Dashboard() {
           </div>
         </div>
       </div>
-      <AddTransactionModel isOpen={showModal} handleClose={() => setShowModal(false)} />
+      {/* Bottom Navigation */}
+      <div className="row position-relative" id="transactionModalRow">
+        <BottomNavigationMenu showTransactionModal={toggleDialog} />
+      </div>
+      <BottomDialogBox isOpen={dialogOpen} onClose={toggleDialog} />
     </>
   );
 }

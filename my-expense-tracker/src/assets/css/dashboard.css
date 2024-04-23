@@ -1,0 +1,5 @@
+#transactionModalRow
+{
+    overflow-y: hidden !important;
+    max-height: 100px !important; 
+}
