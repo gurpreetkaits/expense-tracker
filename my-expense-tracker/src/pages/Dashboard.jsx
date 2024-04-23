@@ -18,18 +18,13 @@ function Dashboard() {
           <div className="col-lg-12">
             <h1 className="text-center my-4">Dashboard</h1>
           </div>
+          <LatestTransactions />
         </div>
-        <div className="row my-4">
-          <div className="col-lg-6">
-            <LatestTransactions />
-          </div>
-        </div>
-      </div>
-      {/* Bottom Navigation */}
-      <div className="row position-relative" id="transactionModalRow">
+        {/* Bottom Navigation */}
         <BottomNavigationMenu showTransactionModal={toggleDialog} />
+        {/* Bottom Dialog Box */}
+        <BottomDialogBox isOpen={dialogOpen} onClose={toggleDialog} />
       </div>
-      <BottomDialogBox isOpen={dialogOpen} onClose={toggleDialog} />
     </>
   );
 }

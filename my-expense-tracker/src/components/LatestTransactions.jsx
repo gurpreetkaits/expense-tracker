@@ -31,8 +31,8 @@ function LatestTransactions() {
   ];
 
   return (
-    <div className="container">
-      <div className="card shadow-sm">
+    <>
+      <div className="card mt-2">
         <div className="card-content">
           <div className="card-body">
             <h2 className="text-center mb-4">Latest Transactions</h2>
@@ -62,7 +62,7 @@ function LatestTransactions() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
