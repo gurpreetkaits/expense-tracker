@@ -199,6 +199,7 @@ img {
   .nav__list {
     justify-content: center;
     column-gap: 3rem;
+    display: none;
   }
 }
 

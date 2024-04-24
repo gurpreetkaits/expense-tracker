@@ -4,21 +4,24 @@ import { useState } from "react";
 import BottomNavigationMenu from "../components/BottomNavigationMenu";
 import "../assets/css/dashboard.css";
 import BottomDialogBox from "../components/BottomDialog";
+import Sidebar from "../components/Sidebar";
 
 function Dashboard() {
-  const [dialogOpen, setDialogOpen] = useState(true);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   const toggleDialog = () => {
     setDialogOpen(!dialogOpen);
   };
   return (
     <>
-      <div className="container">
+      <div className="container-fluid">
         <div className="row">
-          <div className="col-lg-12">
-            <h1 className="text-center my-4">Dashboard</h1>
+          <div className="col-sm-3">
+            <Sidebar />
           </div>
-          <LatestTransactions />
+          <div className="col-sm-9">
+            <LatestTransactions />
+          </div>
         </div>
         {/* Bottom Navigation */}
         <BottomNavigationMenu showTransactionModal={toggleDialog} />
