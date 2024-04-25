@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 const LoginForm = () => {
   return (
     <div className="min-h-screen flex justify-center items-center bg-gray-100">
@@ -50,13 +51,13 @@ const LoginForm = () => {
               placeholder="Password"
             />
           </div>
-          <div className="mb-6 mx-3">
-            <a
-              href="#"
+          <div className="mb-6 mx-4">
+            <Link
+              to="/forget-password"
               className="text-blue-500 hover:text-blue-700 text-sm font-medium"
             >
               Forgot your password?
-            </a>
+            </Link>
           </div>
           <div className="flex items-center justify-center mb-2 mx-3">
             <button
