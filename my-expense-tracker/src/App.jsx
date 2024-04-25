@@ -1,10 +1,11 @@
-import Dashboard from "./pages/Dashboard"
+import './assets/index.css'
+import LoginForm from "./pages/Auth/Login"
 
 function App() {
 
   return (
-    <>
-      <Dashboard/>
+    <>  
+      <LoginForm/>
     </>
   )
 }
