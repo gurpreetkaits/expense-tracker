@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <PanelNav />
-      <div className="container grid grid-cols-5 ">
+      <div className="container  grid grid-cols-5 ">
         <div className="col-span-1">
           <Sidebar />
         </div>
