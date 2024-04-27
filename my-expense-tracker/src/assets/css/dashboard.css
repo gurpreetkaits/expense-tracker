@@ -3,3 +3,16 @@
     overflow-y: hidden !important;
     max-height: 100px !important; 
 }
+body{
+    background-color: white !important;
+}
+
+/* start sidebar icon style */
+.sidebarIcons{
+    color: #000000;
+    font-size: 14px;
+    margin-right: 10px;
+    padding-left: 3px;
+    color: rgb(86, 86, 86);
+}
+/* end sidebar icon style */

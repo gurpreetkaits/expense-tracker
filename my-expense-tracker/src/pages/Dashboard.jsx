@@ -1,32 +1,25 @@
 import React from "react";
-import LatestTransactions from "../components/LatestTransactions";
 import { useState } from "react";
-import BottomNavigationMenu from "../components/BottomNavigationMenu";
 import "../assets/css/dashboard.css";
-import BottomDialogBox from "../components/BottomDialog";
-import Sidebar from "../components/Sidebar";
-
 function Dashboard() {
-  const [dialogOpen, setDialogOpen] = useState(false);
-
-  const toggleDialog = () => {
-    setDialogOpen(!dialogOpen);
-  };
   return (
     <>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-sm-3">
-            <Sidebar />
+      <div className="container border border-gray-300 px-4 py-4 rounded-md">
+        <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
+        <div className="grid grid-cols-3 gap-4">
+          <div className="bg-white p-4 rounded-md border">
+            <h1 className="text-sm mb-4">Total Expenses</h1>
+            <p className="text-3xl">$0</p>
           </div>
-          <div className="col-sm-9">
-            <LatestTransactions />
+          <div className="bg-white p-4 rounded-md border">
+            <h1 className="text-sm mb-4">Total Income</h1>
+            <p className="text-3xl">$0</p>
+          </div>
+          <div className="bg-white p-4 rounded-md border">
+            <h1 className="text-sm mb-4">Balance</h1>
+            <p className="text-3xl">$0</p>
           </div>
         </div>
-        {/* Bottom Navigation */}
-        <BottomNavigationMenu showTransactionModal={toggleDialog} />
-        {/* Bottom Dialog Box */}
-        <BottomDialogBox isOpen={dialogOpen} onClose={toggleDialog} />
       </div>
     </>
   );

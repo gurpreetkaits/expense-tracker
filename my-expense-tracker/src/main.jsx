@@ -12,11 +12,15 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import Expenses from './pages/ExpensePage.jsx'
+import Tags from './pages/Tags.jsx'
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<App />} >
         <Route path="login" element={<LoginForm />} />
         <Route path="dashboard" element={<Dashboard />} />
+        <Route path="expenses" element={<Expenses />} />
+        <Route path="tags" element={<Tags />} />
         <Route path="forget-password" element={<ForgetPassword />} />
     </Route>
 ));
