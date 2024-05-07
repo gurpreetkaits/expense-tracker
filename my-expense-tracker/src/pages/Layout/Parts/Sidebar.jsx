@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 const Sidebar = () => {
   return (
     <>
-      <div className="container flex flex-col ">
+      <div className="container flex flex-col z-0">
         <aside
           className="group/sidebar flex flex-col shrink-0 lg:w-[300px] w-[250px] transition-all duration-300 ease-in-out m-0 z-40 inset-y-0 left-0 sidenav fixed-start loopple-fixed-start ms-4"
           id="sidenav-main"

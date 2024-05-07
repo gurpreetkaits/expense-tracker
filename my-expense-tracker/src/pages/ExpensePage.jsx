@@ -1,16 +1,26 @@
 import React from "react";
 import { useState } from "react";
 import "../assets/css/dashboard.css";
+import ExpenseModal from "../components/ExpenseModal";
 function Expenses() {
+
+    const [isOpen, setIsOpen] = useState(false);
+    const openModal = () => {
+        setIsOpen(true);
+    }   
+    const closeModal = () => {
+        setIsOpen(false);
+    }
   return (
     <>
+      <ExpenseModal isOpen={isOpen} onClose={closeModal}/>
       <div className="main-content border border-gray-300 px-4 py-4 rounded-md">
         <div className="pageTitle flex items-center justify-between">
           <div className="title">
             <h1 className="text-2xl font-bold">Expenses</h1>
           </div>
           <div className="createButton flex align-middle text-light">
-            <button className="text-sm bg-gray-800 hover:bg-gray-900 font-bold text-white flex px-2 py-1 rounded-md">
+            <button onClick={openModal} className="text-sm bg-gray-800 hover:bg-gray-900 font-bold text-white flex px-2 py-1 rounded-md">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
