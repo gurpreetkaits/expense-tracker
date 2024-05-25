@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "../assets/css/dashboard.css";
 import ExpenseModal from "../components/ExpenseModal";
-function Expenses() {
+function ExpensePage() {
 
     const [isOpen, setIsOpen] = useState(false);
     const openModal = () => {
@@ -125,4 +125,4 @@ function Expenses() {
   );
 }
 
-export default Expenses;
+export default ExpensePage;

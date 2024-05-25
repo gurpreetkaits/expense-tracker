@@ -18,7 +18,7 @@ const ForgetPassword = () => {
         <form action="#" method="POST">
           <div className="mb-4 mx-3">
             <label
-              for="email"
+              htmlFor="email"
               className="block text-sm  font-medium text-gray-700"
             >
               Email Address

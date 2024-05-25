@@ -8,7 +8,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::middleware('auth:api')->group(function () {
+Route::middleware('auth:web')->group(function () {
     Route::controller(TransactionController::class)->group(function(){
         Route::get('/transactions', 'get');
         Route::post('/transactions', 'store');
