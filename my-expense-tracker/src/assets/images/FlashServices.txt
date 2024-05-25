@@ -1,0 +1,81 @@
+Home page						8
+	top banner 					1
+	what are you looking for	1
+	special offers				1
+	most popular services
+	deal banner					1
+	quick home repair			1
+	appliance repair			1
+	customer testimonials		1
+
+login with otp in popup			4	5
+	enter phone number
+	otp varification
+
+services						4	2 	
+	services listing (add to cart button)
+	services thumbnails
+	cart view
+
+summary page					8
+	personal info		cart items
+	address				frequentaly added together (slider of other services)
+	slot				coupon/offers
+						payment summery
+
+add address popup					2
+search location popup				2
+select slot (date and time) popup	3
+booking success popup				1
+
+user profile page					8	
+	sidebar links(image, "booking, setting, logout")
+	booking page						complete page					cancelled page
+		booking listing with map			booking listing with map	booking listing with map
+		cancel booking popup
+		cancel success popup
+
+Messages (chat option)				15	
+
+settings							5
+	profile
+		edit profile
+	account settings				
+		delete account (confirmation popup with otp "delete success popup")
+
+blogs								5
+	listing with read more functionality
+	single blog page
+
+about user 							3
+
+landing page						3 	1	
+
+register/login as professional		5 	3
+profile page						5 	1
+upload documents (adhar/pan)		8 	6
+
+bank account details				2	1
+
+review and rating in popup (success popup)	10 	4
+
+84 hrs = around 11 days (8hrs per day) 
+
+
+
+Radius system in admin panel	3
+Sms gateway integrate			1
+Google map integrate 			1
+All home Page banner from admin side active or no active 	2
+Add to cart settings from admin panel 						2
+Time slot and date from admin panel 						2
+Category sub category etc from admin panel 					2
+
+
+
+Deadline 
+Website speed 90 to 100 
+
+2 months
+
+laravel=angular latest version
