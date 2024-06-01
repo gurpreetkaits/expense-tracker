@@ -1,8 +1,34 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-
+import AuthContext from "../../contexts/AuthContext";
 
 const LoginForm = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [emailFieldError, setemailFieldError] = useState("");
+  const [passwordFieldError, setpasswordFieldError] = useState("");
+  const { login, error } = useContext(AuthContext);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setemailFieldError('');
+    setpasswordFieldError('');
+    
+    if (error && error.errors) {
+      let errorMessageArr = error.errors;
+      Object.keys(errorMessageArr).forEach((key) => {
+        if (key == "email") {
+          // emailErrorMessageField.innerText = errorMessageArr[key];
+          setemailFieldError(errorMessageArr[key]);
+        } else {
+          setpasswordFieldError(errorMessageArr[key]);
+        }
+      });
+    } else {
+    }
+    await login(email, password);
+  };
+
   return (
     <div className="min-h-screen  transition-all ease-in-out flex justify-center items-center bg-gray-100">
       <div className="m-20 rounded-lg my-6 p-3 w-96 bg-white ">
@@ -16,7 +42,7 @@ const LoginForm = () => {
         <h1 className="text-2xl text-black mt-3 font-bold mb-4 text-center">
           Login
         </h1>
-        <form action="#" method="POST">
+        <form onSubmit={handleSubmit} method="POST">
           <div className="mb-4 mx-3">
             <label
               htmlFor="email"
@@ -28,12 +54,17 @@ const LoginForm = () => {
               type="email"
               id="email"
               name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="mt-1 block w-full rounded-md bg-gray-100
             pt-1 pb-1 pl-2 focus:outline-none
             transition ease-in-out duration-300
             border-gray-300"
               placeholder="Email"
             />
+            <span id="emailErrorMsg" className="text-red-500 mt-2 text-sm">
+              {emailFieldError}
+            </span>
           </div>
           <div className="mb-6 mx-3">
             <label
@@ -46,12 +77,17 @@ const LoginForm = () => {
               type="password"
               id="password"
               name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="mt-1 block w-full rounded-md
               pt-1 pb-1 pl-2  focus:outline-none
             transition ease-in-out duration-700 bg-gray-100
         "
               placeholder="Password"
             />
+            <span id="passwordErrorMsg" className="text-red-500 mt-2 text-sm">
+              {passwordFieldError}
+            </span>
           </div>
           <div className="mb-6 mx-4">
             <Link
@@ -83,10 +119,9 @@ const LoginForm = () => {
 					</svg>
                     <span className="ml-2">Signup With Google</span>
                     </span> */}
-                    <Link to='/register'>Register</Link>
+              <Link to="/register">Register</Link>
             </button>
           </div>
-          
         </form>
       </div>
     </div>
