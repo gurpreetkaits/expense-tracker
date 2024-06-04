@@ -5,26 +5,26 @@ import AuthContext from "../../contexts/AuthContext";
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const [emailFieldError, setemailFieldError] = useState("");
   const [passwordFieldError, setpasswordFieldError] = useState("");
-  const { login, error } = useContext(AuthContext);
+
+  const { login, error, register } = useContext(AuthContext);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setemailFieldError('');
-    setpasswordFieldError('');
-    
+    setemailFieldError("");
+    setpasswordFieldError("");
+
     if (error && error.errors) {
       let errorMessageArr = error.errors;
       Object.keys(errorMessageArr).forEach((key) => {
         if (key == "email") {
-          // emailErrorMessageField.innerText = errorMessageArr[key];
           setemailFieldError(errorMessageArr[key]);
         } else {
           setpasswordFieldError(errorMessageArr[key]);
         }
       });
-    } else {
     }
     await login(email, password);
   };

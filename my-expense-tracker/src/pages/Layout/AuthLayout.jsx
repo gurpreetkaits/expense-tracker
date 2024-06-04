@@ -1,6 +1,6 @@
 import PanelNav from "./Parts/PanelNav";
 import Sidebar from "./Parts/Sidebar";
-
+import { Outlet } from "react-router";
 function AuthLayout() {
   return (
     <>

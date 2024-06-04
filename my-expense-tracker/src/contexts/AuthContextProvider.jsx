@@ -2,23 +2,31 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AuthContext from "./AuthContext";
 import { axiosInstance } from "../services/api";
-
+import { useNavigate } from "react-router";
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [registerError, setRegisterError] = useState(null);
 
-  useEffect(() => {
-    const fetchUser = async () => {
+  // Todo: Change URL to env global variabl
+  const backendUrl = 'http://localhost:8000/api';
+  
+  console.log(backendUrl);
+   useEffect(() => {
+    const checkAuth = async () => {
       try {
-        const { data } = await axios.get("/api/user");
-        setUser(data);
+        const response = await axiosInstance.get('/user', {
+          withCredentials: true,
+        });
+        setUser(response.data);
       } catch {
         setUser(null);
       }
       setLoading(false);
     };
-    fetchUser();
+
+    checkAuth();
   }, []);
 
   const login = async (email, password) => {
@@ -28,8 +36,9 @@ const AuthProvider = ({ children }) => {
       const { data: userData } = await axiosInstance.get("/user");
       setUser(userData);
       setError(null); // Clear any previous errors
+      navigate('/app/dashboard');
     } catch (error) {
-        console.log('provider error',error);
+      console.log("provider error", error);
       // Handle validation errors or other types of errors
       if (error.response && error.response.data) {
         setError(error.response.data || "Login failed");
@@ -45,8 +54,21 @@ const AuthProvider = ({ children }) => {
     setUser(null);
   };
 
+  const register = async (name,email,password) => {
+    try {
+      const { data } = await axiosInstance.post("/register",{name,email,password});
+      console.log(data);
+    } catch (e) {
+      if (e.response && e.response.data) {
+        setRegisterError(e.response.data || "Login failed");
+      } else {
+        setRegisterError("An error occurred");
+      }
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ user, loading, login, error, logout }}>
+    <AuthContext.Provider value={{ user, loading, login, error,registerError, logout,register }}>
       {children}
     </AuthContext.Provider>
   );

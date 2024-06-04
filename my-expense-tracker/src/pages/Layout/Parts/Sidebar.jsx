@@ -13,7 +13,7 @@ const Sidebar = () => {
               <div>
                 <span className="select-none flex items-center cursor-pointer  my-1 ">
                   <NavLink
-                    to="/dashboard"
+                    to="/app/dashboard"
                     className={({ isActive }) =>
                       `${
                         isActive ? "bg-gray-100 " : ""
@@ -43,7 +43,7 @@ const Sidebar = () => {
               <div>
                 <span className="select-none flex items-center cursor-pointer  my-1 ">
                   <NavLink
-                    to="/expenses"
+                    to="/app/expenses"
                      className={({ isActive }) =>
                       `${
                         isActive ? "bg-gray-100 " : ""
@@ -73,7 +73,7 @@ const Sidebar = () => {
               <div>
                 <span className="select-none flex items-center cursor-pointer  my-1 ">
                   <NavLink
-                    to="/tags"
+                    to="/app/tags"
                      className={({ isActive }) =>
                       `${
                         isActive ? "bg-gray-100 " : ""
