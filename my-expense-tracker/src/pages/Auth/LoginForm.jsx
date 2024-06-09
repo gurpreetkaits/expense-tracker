@@ -8,8 +8,7 @@ const LoginForm = () => {
 
   const [emailFieldError, setemailFieldError] = useState("");
   const [passwordFieldError, setpasswordFieldError] = useState("");
-
-  const { login, error, register } = useContext(AuthContext);
+  const { login, error } = useContext(AuthContext);
   const handleSubmit = async (e) => {
     e.preventDefault();
 

@@ -3,8 +3,7 @@ import LoginForm from "../Auth/LoginForm";
 import RegisterForm from "../Auth/RegisterForm";
 import { Outlet } from "react-router";
 
-const GuestLayout = ({ whichPage }) => {
-  // return <>{whichPage == "login" ? <LoginForm /> : <RegisterForm />}</>;
+const GuestLayout = () => {
   return (
     <>
       <Outlet />

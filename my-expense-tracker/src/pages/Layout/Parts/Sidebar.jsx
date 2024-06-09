@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import AuthContext from "../../../contexts/AuthContext";
+
 const Sidebar = () => {
+  const { logout } = useContext(AuthContext);
+
+  const logoutUser = () => {
+    if (confirm("Do you want to logout?")) {
+      logout();
+    }
+  };
+
   return (
     <>
       <div className="container flex flex-col z-0">
@@ -44,7 +54,7 @@ const Sidebar = () => {
                 <span className="select-none flex items-center cursor-pointer  my-1 ">
                   <NavLink
                     to="/app/expenses"
-                     className={({ isActive }) =>
+                    className={({ isActive }) =>
                       `${
                         isActive ? "bg-gray-100 " : ""
                       } flex items-center flex-grow text-sm hover:bg-gray-100 px-1 py-1 transition-all ease-in-out duration-600 rounded-md`
@@ -74,7 +84,7 @@ const Sidebar = () => {
                 <span className="select-none flex items-center cursor-pointer  my-1 ">
                   <NavLink
                     to="/app/tags"
-                     className={({ isActive }) =>
+                    className={({ isActive }) =>
                       `${
                         isActive ? "bg-gray-100 " : ""
                       } flex items-center flex-grow text-sm hover:bg-gray-100 px-1 py-1 transition-all ease-in-out duration-600 rounded-md`
@@ -109,7 +119,7 @@ const Sidebar = () => {
                 <span className="select-none flex items-center cursor-pointer  my-1 ">
                   <NavLink
                     to="/reports"
-                     className={({ isActive }) =>
+                    className={({ isActive }) =>
                       `${
                         isActive ? "bg-gray-100 " : ""
                       } flex items-center flex-grow text-sm hover:bg-gray-100 px-1 py-1 transition-all ease-in-out duration-600 rounded-md`
@@ -137,6 +147,37 @@ const Sidebar = () => {
                       </svg>
                     </span>
                     Reports
+                  </NavLink>
+                </span>
+                <span
+                  className="select-none flex items-center cursor-pointer  my-1 "
+                  onClick={logoutUser}
+                >
+                  <NavLink
+                    to="javascript:void(0)"
+                    className={({ isActive }) =>
+                      `${
+                        isActive ? "bg-gray-100 " : ""
+                      } flex items-center flex-grow text-sm hover:bg-gray-100 px-1 py-1 transition-all ease-in-out duration-600 rounded-md`
+                    }
+                  >
+                    <span className="sidebarIcons">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-5 h-5"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"
+                        />
+                      </svg>
+                    </span>
+                    Logout
                   </NavLink>
                 </span>
               </div>

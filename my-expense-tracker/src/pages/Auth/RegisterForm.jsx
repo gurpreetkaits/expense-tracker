@@ -125,7 +125,7 @@ const RegisterForm = () => {
               Login?
             </Link>
           </div>
-          <div className="flex items-center justify-center mb-2">
+          <div className="flex items-center justify-center mb-2 mx-3">
             <button
               type="submit"
               className="text-white border min-w-full bg-black pl-5 pr-5 py-1 rounded-md focus:outline-none focus:ring focus:ring-blue-200 focus:ring-opacity-50"
